@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section id="home" class="d-flex align-items-center">
+  <div class="container">
+    <div class="card col-sm-6 offset-sm-3">
+      <%= simple_form_for  :file, url: purchases_path,remote: true ,html: { class:"card-body"  } do |f| %>
+        <%= f.input :purchases, as: :file, label:false, required: true, input_html:{ accept: ".tab"}   %>
+        <%= f.button :submit, 'Upload File', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </div>
+  </div>
+</section>
