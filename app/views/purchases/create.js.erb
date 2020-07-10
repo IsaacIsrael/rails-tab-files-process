@@ -1,1 +1,15 @@
-alert('Total gross income is <%=@response.sum.format%>');
+<% if @response.success?%>
+Swal.fire({
+    text: 'Total gross income is <%=@response.sum.format%>',
+    title: 'Your work has been saved',
+    icon: 'success',
+    confirmButtonText: 'Ok'
+});
+<% else %>
+Swal.fire({
+    html: "<%=@response.error %>",
+    title: 'Error',
+    icon: 'error',
+    confirmButtonText: 'Ok',
+});
+<%end%>
